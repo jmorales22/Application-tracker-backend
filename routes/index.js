@@ -46,7 +46,7 @@ router.post('/adduser', async (req, res) => {
   console.log
 
   if (response.command === 'INSERT' && response.rowCount >= 1) {
-    res.sendStatus(200);
+    res.json({'userId': response.id}).status(200);
   } else {
     res.send("Could not add new user").status(409);
   }
