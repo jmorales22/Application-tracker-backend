@@ -9,6 +9,9 @@ const indexRouter = require("./routes/index");
 const interviewRouter = require("./routes/interviews");
 const applicationRouter = require("./routes/applications");
 
+const indexRouter = require("./routes/index");
+const loginRouter = require("./routes/login");
+
 const app = express();
 
 app.use(cors());
@@ -23,6 +26,8 @@ app.use("/", indexRouter);
 app.use("/interviews", interviewRouter);
 app.use("/applications", applicationRouter);
 
+app.use("/", indexRouter);
+app.use("/login", loginRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

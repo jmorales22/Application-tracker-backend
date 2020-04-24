@@ -4,6 +4,10 @@ const Apps = require("../Models/apps.js");
 const AddUser = require("../Models/addUser.js");
 const Users = require("../Models/users.js");
 
+//* Adds bcrypt for password encription//
+bcrypt = require("bcrypt");
+const saltRounds = 10;
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.send("Welcome to API").status(200);
@@ -23,25 +27,27 @@ router.get("/apps", async function (req, res, next) {
 
 /* Adds new user */
 router.post("/adduser", async (req, res) => {
+  const {
+    first_name,
+    last_name,
+    email,
+    user_password,
+    is_admin,
+    contact_me,
+  } = req.body;
+
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(user_password, salt);
+
   try {
-    const {
-      first_name,
-      last_name,
-      email,
-      user_password,
-      is_admin,
-      contact_me,
-    } = req.body;
     const response = await AddUser.addUser(
       first_name,
       last_name,
       email,
-      user_password,
+      hash,
       is_admin,
       contact_me
     );
-
-    console.log;
 
     if (response.command === "INSERT" && response.rowCount >= 1) {
       res.json({ userId: response.id }).status(200);
