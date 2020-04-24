@@ -9,8 +9,4 @@ router.get("/:user_id", async function (req, res) {
     res.json(data);
 });
 
-router.get('/', function (req, res, next) {
-  res.send('Welcome to API').status(200);
-});
-
 module.exports = router;

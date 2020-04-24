@@ -1,5 +1,4 @@
 const db = require("./conn.js");
-
 class Apps {
   
   static async getAllApplications(user_id) {
