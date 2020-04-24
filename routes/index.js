@@ -1,61 +1,57 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-const Apps = require('../Models/apps.js');
-const AddUser = require('../Models/addUser.js');
-const Users = require('../Models/users.js');
+const Apps = require("../Models/apps.js");
+const AddUser = require("../Models/addUser.js");
+const Users = require("../Models/users.js");
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.send('Welcome to API').status(200);
+router.get("/", function (req, res, next) {
+  res.send("Welcome to API").status(200);
 });
 
 /* Shows all users (will be only visible to admin) */
-router.get('/users', async function (req, res, next) {
+router.get("/users", async function (req, res, next) {
   const all = await Users.getAllUsers();
   res.json(all);
 });
 
 /* Shows all public applications */
-router.get('/apps', async function (req, res, next) {
+router.get("/apps", async function (req, res, next) {
   const all = await Apps.getAllApplications();
   res.json(all);
 });
 
 /* Adds new user */
-router.post('/adduser', async (req, res) => {
-
+router.post("/adduser", async (req, res) => {
   try {
+    const {
+      first_name,
+      last_name,
+      email,
+      user_password,
+      is_admin,
+      contact_me,
+    } = req.body;
+    const response = await AddUser.addUser(
+      first_name,
+      last_name,
+      email,
+      user_password,
+      is_admin,
+      contact_me
+    );
 
-  const {
-    first_name,
-    last_name,
-    email,
-    user_password,
-    is_admin,
-    contact_me,
-  } = req.body;
-  const response = await AddUser.addUser(
-    first_name,
-    last_name,
-    email,
-    user_password,
-    is_admin,
-    contact_me
-  );
+    console.log;
 
-  console.log
-
-  if (response.command === 'INSERT' && response.rowCount >= 1) {
-    res.json({'userId': response.id}).status(200);
-  } else {
-    res.send("Could not add new user").status(409);
-  }
-  res.sendStatus(200);
-  }
-  catch (err) {
+    if (response.command === "INSERT" && response.rowCount >= 1) {
+      res.json({ userId: response.id }).status(200);
+    } else {
+      res.send("Could not add new user").status(409);
+    }
+    res.sendStatus(200);
+  } catch (err) {
     return err;
   }
-  }
-);
+});
 
 module.exports = router;
