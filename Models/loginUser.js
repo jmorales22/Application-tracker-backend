@@ -16,29 +16,25 @@ class loginUser {
 
     async login(email) {
 
-      console.log(email)
-
       try {
       const response = await db.any (
       `SELECT id, first_name, last_name, email, user_password FROM Users WHERE email = $1;`,
       [email]
       );
-      console.log(response)
-      console.log(response[0].user_password)
+      
+      console.log(this.password)
   
       const isValid = this.checkPassword(response[0].user_password);
         
       if (!!isValid) {
-        const { id, first_name, last_name, email } = response;
-
-        console.log(id);
-
-        return { user_id: id, first_name: first_name, last_name: last_name, email: email };
+        const { id, first_name, last_name } = response[0];
+        return { isValid, user_id: id, first_name, last_name };
       } else {
         return { isValid };
       }
+
     } catch (error) {
-      console.error('ERROR:', error);
+      console.error('LOGIN ERROR:', error);
       return error;
     }
   }
