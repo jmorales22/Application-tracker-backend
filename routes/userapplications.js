@@ -2,10 +2,9 @@ var express = require("express");
 var router = express.Router();
 const addApp = require("../Models/addApp");
 
-router.post("/applicationinfo", async (req, res) => {
+router.post("/", async (req, res) => {
   console.log("req body: ", req.body);
   const {
-    company_id,
     city,
     position,
     position_description,
@@ -14,7 +13,6 @@ router.post("/applicationinfo", async (req, res) => {
     make_public,
   } = req.body;
   const response = await addApp.addApplicationData(
-    company_id,
     city,
     position,
     position_description,
