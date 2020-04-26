@@ -1,8 +1,7 @@
 const db = require("./conn.js");
 class Apps {
-  
   static async getAllApplications(user_id) {
-    console.log("calling allapplications method")
+    console.log("calling allapplications method");
     try {
       const response = await db.any(
         `select * from applications where applications.user_id=${user_id};`
@@ -25,4 +24,3 @@ class Apps {
 }
 
 module.exports = Apps;
-
