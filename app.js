@@ -24,6 +24,7 @@ app.use("/", indexRouter);
 app.use("/interviews", interviewRouter);
 app.use("/applications", applicationRouter);
 app.use("/login", loginRouter);
+app.use("/interviewsEntry", interviewRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
