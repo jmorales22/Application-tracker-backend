@@ -1,4 +1,5 @@
 const createError = require("http-errors"),
+  session = require("express-session"),
   express = require("express"),
   path = require("path"),
   cookieParser = require("cookie-parser"),
@@ -20,6 +21,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: "team",
+    resave: false,
+    saveUninitialized: true,
+    is_logged_in: true,
+  })
+);
 
 app.use("/", indexRouter);
 app.use("/interviews", interviewRouter);

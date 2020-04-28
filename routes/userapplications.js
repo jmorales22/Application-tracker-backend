@@ -4,6 +4,8 @@ const addApp = require("../Models/addApp");
 
 router.post("/", async (req, res) => {
   console.log("req body: ", req.body);
+  const userId = req.session.user_id;
+
   const {
     city,
     position,
@@ -13,6 +15,7 @@ router.post("/", async (req, res) => {
     make_public,
   } = req.body;
   const response = await addApp.addApplicationData(
+    userId,
     city,
     position,
     position_description,
