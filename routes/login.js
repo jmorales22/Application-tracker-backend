@@ -4,28 +4,20 @@ var router = express.Router();
 const loginUser = require('../Models/loginUser');
 bcrypt = require('bcrypt');
 
-
- //* To log in new a user *//
-
 router.post('/loginuser', async (req, res) => {
-console.log('loginRoute')
-    const { email, password } = req.body;
-    
-    const user = new loginUser(null, null, null, email, password);
-    const loginResponse = await user.login();
+    const { email, user_password } = req.body;
+
+    const user = new loginUser(email, user_password);
+
+    const loginResponse = await user.login(email);
     console.log('login response is', loginResponse);
     
+    console.log(loginResponse.user_id)
+
     if (!!loginResponse.isValid) {
-      req.session.is_logged_in = loginResponse.isValid;
-      req.session.user_id = loginResponse.user_id;
-      req.session.first_name = loginResponse.first_name;
-      req.session.last_name = loginResponse.last_name;
-      req.session.save();
-  
-      res.redirect('/main');
+      res.json({ userId: loginResponse.user_id }).status(200);
     } else {
-      //res.sendStatus(401);
-      res.redirect('/');
+      res.json({ userId: null }).status(401);
     }
     });
   
