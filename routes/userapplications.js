@@ -4,7 +4,6 @@ const addApp = require("../Models/addApp");
 const newCompany = require("../Models/company");
 const db = require("../Models/conn.js");
 
-
 router.post("/", async (req, res, next) => {
   const {
     company_name,
@@ -15,7 +14,7 @@ router.post("/", async (req, res, next) => {
     offer_extended,
     make_public,
   } = req.body;
-  
+
   try {
     const response = await db.any(
       "SELECT id FROM companies WHERE company_name = $1",
