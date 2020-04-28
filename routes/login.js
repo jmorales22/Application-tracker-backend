@@ -15,12 +15,9 @@ router.post('/loginuser', async (req, res) => {
     console.log(loginResponse.user_id)
 
     if (!!loginResponse.isValid) {
-
-      res.json({userId: loginResponse.user_id}).status(200);
-
+      res.json({ userId: loginResponse.user_id }).status(200);
     } else {
-      //res.sendStatus(401);
-      res.redirect('/');
+      res.json({ userId: null }).status(401);
     }
     });
   
