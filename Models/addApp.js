@@ -3,7 +3,6 @@ const db = require("./conn");
 class AddApp {
   constructor(
     user_id,
-    company_id,
     city,
     position,
     position_description,
@@ -21,6 +20,7 @@ class AddApp {
     this.make_public = make_public;
   }
   static async addApplicationData(
+    user_id,
     company_id,
     city,
     position,
