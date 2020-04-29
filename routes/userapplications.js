@@ -6,6 +6,7 @@ const db = require("../Models/conn.js");
 
 router.post("/", async (req, res, next) => {
   const {
+    user_id,
     company_name,
     city,
     position,
@@ -24,6 +25,7 @@ router.post("/", async (req, res, next) => {
 
     if (companyId) {
       const addApplication = await addApp.addApplicationData(
+        user_id,
         companyId,
         city,
         position,
@@ -46,6 +48,7 @@ router.post("/", async (req, res, next) => {
       const newCompanyId = response && response[0] && response[0].id;
 
       const addApplication = await addApp.addApplicationData(
+        user_id,
         newCompanyId,
         city,
         position,

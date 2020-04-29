@@ -5,9 +5,9 @@ const addInterviewInfo = require ('../Models/interviewsEntry');
 router.post ('/', async (req, res) => {
  
   const {
-    // user_id,
-    // application_id,
-    // company_name,
+    user_id,
+    application_id,
+    company_id,
     round,
     interview_type,
     interview_date,
@@ -23,9 +23,9 @@ router.post ('/', async (req, res) => {
 
   console.log ('req body: ', req.body);
   const response = await addInterviewInfo.addInterviewInfo (
-    // user_id,
-    // application_id,
-    // company_name,
+    user_id,
+    application_id,
+    company_id,
     round,
     interview_type,
     interview_date,

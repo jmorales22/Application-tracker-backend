@@ -11,7 +11,7 @@ class AppInterview {
   }
   static async getAppsInterviews(user_id) {
     try {
-      const response = await db.any(`SELECT * FROM applications INNER JOIN interviews ON applications.id = interviews.application_id INNER JOIN companies ON companies.id = applications.company_id WHERE applications.user_id=${user_id};`);
+      const response = await db.any(`SELECT * FROM applications INNER JOIN interviews ON applications.id = interviews.application_id INNER JOIN companies ON companies.id = applications.company_id;`);
       return response;
     } catch (err) {
       return err.message;

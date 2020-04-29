@@ -21,6 +21,7 @@ class AddApp {
     this.make_public = make_public;
   }
   static async addApplicationData(
+    user_id,
     company_id,
     city,
     position,
@@ -32,10 +33,11 @@ class AddApp {
     try {
       const postAppData = await db.result(
         `insert into applications
-        (company_id, city, position, position_description, application_date, offer_extended, make_public)
+        (user_id, company_id, city, position, position_description, application_date, offer_extended, make_public)
         values
-        ($1, $2, $3, $4, $5, $6, $7)`,
+        ($1, $2, $3, $4, $5, $6, $7, $8)`,
         [
+          user_id,
           company_id,
           city,
           position,
