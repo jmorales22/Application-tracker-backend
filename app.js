@@ -1,4 +1,5 @@
 const createError = require("http-errors"),
+  session = require("express-session"),
   express = require("express"),
   path = require("path"),
   cookieParser = require("cookie-parser"),
@@ -9,7 +10,11 @@ const indexRouter = require("./routes/index");
 const interviewRouter = require("./routes/interviews");
 const applicationRouter = require("./routes/applications");
 const loginRouter = require("./routes/login");
+
+const interViewEntryRouter = require("./routes/interviewsEntry");
 const applicationInfo = require("./routes/userapplications");
+const manageapplications = require("./routes/manageapplications");
+
 
 const app = express();
 
@@ -20,12 +25,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: "team",
+    resave: false,
+    saveUninitialized: true,
+    is_logged_in: true,
+  })
+);
 
 app.use("/", indexRouter);
 app.use("/interviews", interviewRouter);
 app.use("/applications", applicationRouter);
 app.use("/login", loginRouter);
+app.use("/interviewsEntry", interViewEntryRouter);
+app.use("/manageapplications", manageapplications);
 app.use("/userapplications", applicationInfo);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
