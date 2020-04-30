@@ -1,9 +1,11 @@
 const db = require("./conn.js");
 
 class Interviews {
-  static async getAllInterviews() {
+  static async getInterviews(application_id) {
     try {
-      const response = await db.any(`select * from applications inner join users on applications.user_id = users.id; 
+      const response = await db.any(
+      `SELECT * FROM interviews
+      where application_id = ${application_id};
       `);
       return response;
     } catch (err) {

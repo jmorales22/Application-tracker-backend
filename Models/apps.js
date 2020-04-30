@@ -4,7 +4,13 @@ class Apps {
     console.log("calling allapplications method");
     try {
       const response = await db.any(
-        `select * from applications where applications.user_id=${user_id};`
+        `SELECT
+        *
+        FROM applications
+        INNER JOIN users ON users.id = applications.user_id
+        INNER JOIN companies ON companies.id = applications.company_id
+        WHERE users.id = ${user_id}
+        ;`
       );
       return response;
     } catch (err) {
@@ -26,7 +32,11 @@ class Apps {
   static async getPublicApplications() {
     try {
       const response = await db.any(
-        `select * from applications where make_public='yes';`
+        `SELECT
+        *
+        FROM applications
+        INNER JOIN users ON applications.user_id = users.id
+        where applications.make_public='yes';`
       );
       return response;
     } catch (err) {
