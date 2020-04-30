@@ -21,7 +21,7 @@ router.get("/users", async function (req, res, next) {
 
 /* Shows all public applications */
 router.get("/apps", async function (req, res, next) {
-  const all = await Apps.getAllApplications();
+  const all = await Apps.getPublicApplications();
   res.json(all);
 });
 
