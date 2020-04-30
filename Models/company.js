@@ -6,6 +6,16 @@ class AddCompany {
     this.company_name = company_name;
   }
 
+  static async getAllCompanies() {
+    try {
+      const response = await db.any(`select * from companies ORDER BY company_name; 
+      `);
+      return response;
+    } catch (err) {
+      return err.message;
+    }
+  }
+
   static async addCompany(
     company_name
   ) {

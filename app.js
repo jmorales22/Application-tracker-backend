@@ -13,7 +13,7 @@ const loginRouter = require("./routes/login");
 
 const interViewEntryRouter = require("./routes/interviewsEntry");
 const applicationInfo = require("./routes/userapplications");
-const manageapplications = require("./routes/manageapplications");
+const companyRouter = require("./routes/companies");
 
 
 const app = express();
@@ -39,8 +39,8 @@ app.use("/interviews", interviewRouter);
 app.use("/applications", applicationRouter);
 app.use("/login", loginRouter);
 app.use("/interviewsEntry", interViewEntryRouter);
-app.use("/manageapplications", manageapplications);
 app.use("/userapplications", applicationInfo);
+app.use("/companies", companyRouter);
 
 
 // catch 404 and forward to error handler
