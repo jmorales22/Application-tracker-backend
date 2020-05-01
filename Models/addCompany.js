@@ -8,12 +8,11 @@ class CompanyModel {
   static async addCompany() {
     try {
       const response = await db.any(
-        `insert into companies
+        `INSERT INTO companies
       (company_name)
       ($1)`,
         [this.company_name]
       );
-      console.log(response);
       return response;
     } catch (error) {
       console.error("ERROR: ", error);

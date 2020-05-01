@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const Apps = require("../Models/apps.js");
 const AddUser = require("../Models/addUser.js");
 const Users = require("../Models/users.js");
@@ -9,18 +9,18 @@ bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.get("/", function (req, res) {
   res.send("Welcome to API").status(200);
 });
 
 /* Shows all users (will be only visible to admin) */
-router.get("/users", async function (req, res, next) {
+router.get("/users", async function (req, res) {
   const all = await Users.getAllUsers();
   res.json(all);
 });
 
 /* Shows all public applications */
-router.get("/apps", async function (req, res, next) {
+router.get("/apps", async function (req, res) {
   const all = await Apps.getPublicApplications();
   res.json(all);
 });

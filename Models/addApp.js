@@ -32,9 +32,9 @@ class AddApp {
   ) {
     try {
       const postAppData = await db.result(
-        `insert into applications
+        `INSERT INTO applications
         (user_id, company_id, city, position, position_description, application_date, offer_extended, make_public)
-        values
+        VALUES
         ($1, $2, $3, $4, $5, $6, $7, $8)`,
         [
           user_id,
