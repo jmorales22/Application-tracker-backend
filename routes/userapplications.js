@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const addApp = require("../Models/addApp");
 const newCompany = require("../Models/company");
 const db = require("../Models/conn.js");
