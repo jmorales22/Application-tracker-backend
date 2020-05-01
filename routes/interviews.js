@@ -1,5 +1,5 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const Interviews = require("../Models/interviews.js");
 
 router.get("/:application_id?", async function (req, res) {
