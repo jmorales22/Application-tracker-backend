@@ -6,12 +6,12 @@ create table users (
     user_password varchar,
     is_admin varchar,
     contact_me varchar
-)
+);
 
 create table companies (
     id serial primary key,
     company_name varchar
-)
+);
 
 create table applications (
     id serial primary key,
@@ -23,7 +23,7 @@ create table applications (
     application_date date,
     offer_extended varchar,
     make_public varchar
-)
+);
 
 create table interviews (
     id serial primary key,
@@ -39,5 +39,6 @@ create table interviews (
     follow_up_phone varchar,
     follow_up_email varchar,
     whiteboarding varchar,
+    code_challenge varchar,
     comments varchar
-)
+);
