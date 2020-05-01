@@ -25,7 +25,7 @@ class Apps {
         *
         FROM applications
         INNER JOIN users ON applications.user_id = users.id
-        where applications.make_public='yes';`
+        where applications.make_public='Yes';`
       );
       return response;
     } catch (err) {
