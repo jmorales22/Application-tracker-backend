@@ -1,9 +1,9 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const router = express.Router();
 const Company = require("../Models/company.js");
 const Interviews = require("../Models/interviews.js");
 
-router.get("/", async function (req, res, next) {
+router.get("/", async function (req, res) {
   const all = await Company.getAllCompanies();
   res.json(all);
 });

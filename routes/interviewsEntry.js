@@ -1,9 +1,8 @@
-var express = require ('express');
-var router = express.Router ();
-const addInterviewInfo = require ('../Models/interviewsEntry');
+const express = require("express");
+const router = express.Router();
+const addInterviewInfo = require("../Models/interviewsEntry");
 
-router.post ('/', async (req, res) => {
- 
+router.post("/", async (req, res) => {
   const {
     user_id,
     application_id,
@@ -18,11 +17,10 @@ router.post ('/', async (req, res) => {
     follow_up_email,
     whiteboarding,
     code_challenge,
-    comments
+    comments,
   } = req.body;
 
-  console.log ('req body: ', req.body);
-  const response = await addInterviewInfo.addInterviewInfo (
+  const response = await addInterviewInfo.addInterviewInfo(
     user_id,
     application_id,
     company_id,
@@ -39,10 +37,10 @@ router.post ('/', async (req, res) => {
     comments
   );
 
-  if (response.command === 'INSERT' && response.rowCount >= 1) {
-    res.sendStatus (200);
+  if (response.command === "INSERT" && response.rowCount >= 1) {
+    res.sendStatus(200);
   } else {
-    res.send ('Could not add new comment').status (409);
+    res.send("Could not add new comment").status(409);
   }
 });
 
