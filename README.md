@@ -1,4 +1,4 @@
-# Application-tracker-backend
+## AppTrack
 
 AppTrack is the way for you to keep up with the jobs you have applied for.  In addition to keeping track, we let you give feedback about the interview experience- for example: was there whiteboarding? Or a code challenge? Was the interview easy or difficult?  We let you provide us with details on your experience to help others.
 
