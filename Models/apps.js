@@ -9,7 +9,7 @@ class Apps {
         FROM applications
         INNER JOIN users ON users.id = applications.user_id
         INNER JOIN companies ON companies.id = applications.company_id
-        WHERE users.id = ${user_id} ORDER BY application_date DESC
+        WHERE users.id = ${user_id} ORDER BY application_date DESC;
         ;`
       );
       return response;

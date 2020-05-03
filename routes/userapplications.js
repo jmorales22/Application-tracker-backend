@@ -24,7 +24,7 @@ router.post("/", async (req, res, next) => {
     const companyId = response && response[0] && response[0].id;
 
     if (companyId) {
-      const addApplication = await addApp.addApplicationData(
+      const response = await addApp.addApplicationData(
         user_id,
         companyId,
         city,
@@ -34,11 +34,13 @@ router.post("/", async (req, res, next) => {
         offer_extended,
         make_public
       );
-      if (addApplication) {
-        res.status(200);
+
+      if (response.command === "INSERT" && response.rowCount >= 1) {
+        res.json(200);
       } else {
-        res.sendStatus(500);
+        res.send("Could not add new user").status(409);
       }
+      res.sendStatus(200);
     } else {
       const newComp = await newCompany.addCompany(company_name);
       const response = await db.any(
@@ -57,6 +59,12 @@ router.post("/", async (req, res, next) => {
         offer_extended,
         make_public
       );
+      if (response.command === "INSERT" && response.rowCount >= 1) {
+        res.json(200);
+      } else {
+        res.send("Could not add new user").status(409);
+      }
+      res.sendStatus(200);
     }
   } catch (err) {
     return err;
