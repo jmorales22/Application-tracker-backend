@@ -16,3 +16,9 @@ In our app you can find:<br/>
 
 
 insert images of app once complete
+
+### The builders:<br/>
+[Jennifer Morales](https://github.com/jmorales22)<br/>
+[Fred Major](https://github.com/sgtfredmajor)<br/>
+[Frank Sundstedt](https://github.com/fsundstedt)<br/>
+[Ally Brannon](https://github.com/allybrannon)<br/>
