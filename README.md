@@ -13,6 +13,7 @@ In our app you can find:<br/>
 [React (front-end)](https://reactjs.org/)<br/>
 [styled components (front-end)](https://styled-components.com/)<br/>
 [Favicon (front-end)](https://favicon.io/)<br/>
+[Hatchful(Logo)](https://hatchful.shopify.com/)<br/>
 
 
 insert images of app once complete
