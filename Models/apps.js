@@ -25,6 +25,7 @@ class Apps {
         *
         FROM applications
         INNER JOIN users ON applications.user_id = users.id
+        INNER JOIN companies ON applications.company_id = companies.id
         where applications.make_public='Yes';`
       );
       return response;
