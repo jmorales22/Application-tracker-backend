@@ -14,7 +14,7 @@ In our app you can find:<br/>
 [Favicon (front-end)](https://favicon.io/)<br/>
 [Hatchful(Logo)](https://hatchful.shopify.com/)<br/>
 
-From the Home Page, you can find all of your applications, track them, and add any interviews as well.<br/>
+From the Home Page, you can find all of your applications, track them, and add any interviews.<br/>
 <img width="600" alt="AppTrack 2020MainPage" src="https://user-images.githubusercontent.com/58038239/81020848-c2c11280-8e37-11ea-938d-56b21bdf4b55.png">
 <br/>
 From the Add Application Page, you can document the jobs you have applied for.<br/>
