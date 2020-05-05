@@ -14,7 +14,7 @@ In our app you can find:<br/>
 [Favicon (front-end)](https://favicon.io/)<br/>
 [Hatchful(Logo)](https://hatchful.shopify.com/)<br/>
 
-From the Home Page, you can find all of your applications, track them, add any interviews or update with a new application.<br/>
+From the Home Page, you can find all of your applications, track them, and add any interviews as well.<br/>
 <img width="600" alt="AppTrack 2020MainPage" src="https://user-images.githubusercontent.com/58038239/81020848-c2c11280-8e37-11ea-938d-56b21bdf4b55.png">
 <br/>
 From the Add Application Page, you can document the jobs you have applied for.<br/>
@@ -26,8 +26,8 @@ If you click on the "See Companies Others Have Applied To" link from your home p
 <br/>
 To add Interview Data, you can submit your interview history after you have logged the application.  The interview asks several questions to help you and others see the types of interviews the company gave.<br/>
 <img width="600" alt="AppTrack 2020-05-04 18-40-17" src="https://user-images.githubusercontent.com/58038239/81020879-d79da600-8e37-11ea-9fee-eed22cc8b242.png">
-<br/>
-### The builders:<br/>
+
+## The Builders:<br/>
 [Jennifer Morales](https://github.com/jmorales22)<br/>
 [Fred Major](https://github.com/sgtfredmajor)<br/>
 [Frank Sundstedt](https://github.com/fsundstedt)<br/>
